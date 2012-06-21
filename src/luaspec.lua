@@ -45,9 +45,9 @@ function spec:report(verbose)
 			if verbose or not (verbose and r.passed) then
 				print(("%-70s [ %s ]"):format(" - " .. description, outcome))
 
-				table.foreach(r.errors, function(index, error)
+				for index, error in pairs(r.errors) do
 					print("   ".. index..". Failed expectation : ".. error.message.."\n   "..error.trace)
-				end)
+				end
 			end
 		end
 	end
